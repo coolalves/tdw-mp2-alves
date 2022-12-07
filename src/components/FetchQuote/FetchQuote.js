@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import './FetchQuote.scss';
 
 const FetchQuote = () => {
     const [data, setData] = useState("Click to get a quote");
@@ -30,10 +31,10 @@ const FetchQuote = () => {
      }, []);*/
     return (
         <div>
-            <p>
+            <p className={"quote-text"}>
                 {data}
             </p>
-            <button onClick={fetchKanyeQuote}> Get a quote</button>
+            <button onClick={fetchKanyeQuote} className={"quote-button"}> Get a quote</button>
         </div>
     )
 };

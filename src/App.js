@@ -1,11 +1,8 @@
 import React from 'react';
-import FetchQuote from './components/FetchQuote';
+import './styles/App.scss';
+import FetchQuote from './components/FetchQuote/FetchQuote';
 
 const App = () => {
-
-
-
-
   return (
     <div>
       <FetchQuote />
