@@ -1,9 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 import './FetchQuote.scss';
+import ActionButtons from '../ActionButtons/ActionButtons';
 
 const FetchQuote = () => {
-    const [data, setData] = useState("Click to get a quote");
+    const [data, setData] = useState("");
+    const [gotQuote, setGotQuote] = useState(false);
+
     const fetchKanyeQuote = async () => {
         try {
             const res = await fetch("https://api.kanye.rest/");
@@ -11,6 +14,7 @@ const FetchQuote = () => {
 
             console.log(data.quote);
             setData(data.quote);
+            setGotQuote(true);
         } catch (error) {
             console.error(error);
         }
@@ -29,14 +33,22 @@ const FetchQuote = () => {
  
          fetchKanyeQuote();
      }, []);*/
+
+
+
     return (
-        <div>
+        <div className={"container"}>
             <p className={"quote-text"}>
                 {data}
             </p>
-            <button onClick={fetchKanyeQuote} className={"quote-button"}> Get a quote</button>
+            <button onClick={fetchKanyeQuote} className={"quote-button"}> get a quote</button>
+            {
+                gotQuote ? <ActionButtons /> : null}
         </div>
     )
 };
+
+
+
 
 export default FetchQuote;
