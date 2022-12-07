@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+//import axios from 'axios';
+import {useEffect} from 'react';
 
-function App() {
+const App = () => {
+
+  useEffect(() => {
+    const fetchKanyeQuote = async () => {
+      try {
+        const res = await fetch("https://api.kanye.rest/");
+        const data = await res.json();
+
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchKanyeQuote();
+  }, []);
+
+  // Promise chaining approach for comparison
+  useEffect(() => {
+    const fetchKanyeQuote = async () =>
+      await fetch("https://api.kanye.rest/")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+    fetchKanyeQuote();
+  }, []);
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      test
     </div>
+
   );
 }
 
-export default App;
+export default App;   
