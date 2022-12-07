@@ -43,7 +43,7 @@ const FetchQuote = () => {
             </p>
             <button onClick={fetchKanyeQuote} className={"quote-button"}> get a quote</button>
             {
-                gotQuote ? <ActionButtons /> : null}
+                gotQuote ? <ActionButtons props={data} /> : null}
         </div>
     )
 };
