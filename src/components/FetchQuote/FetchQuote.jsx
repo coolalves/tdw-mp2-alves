@@ -2,53 +2,27 @@ import React from 'react';
 import { useState } from 'react';
 import './FetchQuote.scss';
 import ActionButtons from '../ActionButtons/ActionButtons';
+import axios from 'axios';
 
 const FetchQuote = () => {
-    const [data, setData] = useState("");
+    const [quote, setQuote] = useState('');
     const [gotQuote, setGotQuote] = useState(false);
-
-    const fetchKanyeQuote = async () => {
-        try {
-            const res = await fetch("https://api.kanye.rest/");
-            const data = await res.json();
-
-            console.log(data.quote);
-            setData(data.quote);
-            setGotQuote(true);
-        } catch (error) {
-            console.error(error);
-        }
+    const handleClick = async () => {
+        const response = await axios.get('https://api.kanye.rest');
+        setQuote(response.data.quote);
+        setGotQuote(true);
     };
-    /* // Promise chaining approach for comparison
-     useEffect(() => {
-         const fetchKanyeQuote = async () =>
-             await fetch("https://api.kanye.rest/")
-                 .then((res) => res.json())
-                 .then((data) => {
-                     console.log(data);
-                 })
-                 .catch((error) => {
-                     console.error(error);
-                 });
- 
-         fetchKanyeQuote();
-     }, []);*/
-
-
 
     return (
         <div className={"container"}>
             <p className={"quote-text"}>
-                {data}
+                {quote}
             </p>
-            <button onClick={fetchKanyeQuote} className={"quote-button"}> get a quote</button>
+            <button onClick={handleClick} className={"quote-button"}> get a quote</button>
             {
-                gotQuote ? <ActionButtons props={data} /> : null}
+                gotQuote ? <ActionButtons props={quote} /> : null}
         </div>
     )
 };
-
-
-
 
 export default FetchQuote;
