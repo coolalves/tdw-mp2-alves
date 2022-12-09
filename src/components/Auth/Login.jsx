@@ -10,7 +10,7 @@ import Header from "../../components/Header/Header";
 import "./Auth.scss";
 import "../../styles/App.scss";
 
-const Register = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -28,7 +28,7 @@ const Register = () => {
     return isValid;
   };
 
-  const register = (e) => {
+  const login = (e) => {
     e.preventDefault();
     setError("");
     if (validatePassword()) {
@@ -52,13 +52,9 @@ const Register = () => {
     <div className="center">
       <Header />
       <div className={"auth-container"}>
-        <h1 className={"input-label"}>Create account</h1>
+        <h1 className={"input-label"}>Enter your account</h1>
         {error && <div className="">{error}</div>}
-        <form
-          className={"auth-form"}
-          onSubmit={register}
-          name="registration_form"
-        >
+        <form className={"auth-form"} onSubmit={login} name="login_form">
           <input
             className={"auth-input"}
             type="email"
@@ -87,13 +83,13 @@ const Register = () => {
           />
 
           <button className={"custom-button"} type="submit">
-            Register
+            Login
           </button>
         </form>
         <span className={"login-signup-label"}>
-          Already have an account?
-          <Link className={"login-signup-label"} to="/login">
-            login
+          Don't have an account?
+          <Link className={"login-signup-label"} to="/register">
+            register
           </Link>
         </span>
       </div>
@@ -101,4 +97,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
