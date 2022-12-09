@@ -1,11 +1,12 @@
 .container {
-    margin: 3rem;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .quote-text {
-    font-size: 3rem;
-    font-weight: 700;
-    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 4rem 0;
     text-align: center;
 }
 
@@ -15,9 +16,9 @@
     border-radius: 0px;
     color: #FFFFFF;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: .8rem;
     font-weight: 400;
-    padding: 1rem 2.5rem;
+    padding: .5rem 2.5rem;
     margin: 0 auto;
     display: block;
     //text-transform: uppercase;
