@@ -1,13 +1,12 @@
 import lettering from "../../assets/lettering.svg";
-import './Header.scss';
+import "./Header.scss";
 
 const Header = () => {
-
-    return (
-        <div className={"header"}>
-            <img className={"lettering"} src={lettering} width={"10%"} alt="logo" />
-        </div>
-    );
-}
+  return (
+    <div className={"header"}>
+      <img className={"lettering"} src={lettering} alt="logo" />
+    </div>
+  );
+};
 
 export default Header;

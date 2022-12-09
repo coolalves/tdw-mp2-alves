@@ -1,31 +1,13 @@
 .container {
-    max-width: 100%;
-    margin: 0 auto;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-right: 20%;
+  padding-left: 20%;
 }
 
 .quote-text {
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 4rem 0;
-    text-align: center;
-}
-
-.quote-button {
-    background-color: #4207E6;
-    border: 0px solid transparent;
-    border-radius: 0px;
-    color: #FFFFFF;
-    cursor: pointer;
-    font-size: .8rem;
-    font-weight: 400;
-    padding: .5rem 2.5rem;
-    margin: 0 auto;
-    display: block;
-    //text-transform: uppercase;
-    transition: all 0.2s ease-in-out;
-    &:hover {
-        color: #FFFFFF;
-        background-color: #1EE62F;
-        border: 0px solid transparent;
-    }
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
 }
