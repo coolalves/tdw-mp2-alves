@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./ActionButtons.scss";
 import "../../styles/App.scss";
 import { TwitterShareButton, TwitterIcon } from "react-share";
-import Quatrain from "../Quatrain/Quatrain";
 
 const ActionButtons = (props) => {
   let data = props;
@@ -21,7 +20,7 @@ const ActionButtons = (props) => {
       <div className={"buttons"}>
         <button onClick={handleButtonClick} className={"custom-button"}>
           {" "}
-          pick quote
+          pick quatrain
         </button>
       </div>
       <div className={"buttons"}>
@@ -47,7 +46,6 @@ const ActionButtons = (props) => {
           />
         </TwitterShareButton>
       </div>
-      <Quatrain props={pickedQuote.props} />
     </>
   );
 };

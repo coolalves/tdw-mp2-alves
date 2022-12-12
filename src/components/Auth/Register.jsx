@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../../firebase/firebase";
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-} from "firebase/auth";
-import { useAuthValue } from "./AuthContext";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import "./Auth.scss";
@@ -35,11 +31,7 @@ const Register = () => {
       // Create a new user with email and password using firebase
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => {
-          sendEmailVerification(auth.currentUser)
-            .then(() => {
-              navigate("/verify-email");
-            })
-            .catch((err) => alert(err.message));
+          navigate("/");
         })
         .catch((err) => setError(err.message));
     }

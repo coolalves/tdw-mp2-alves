@@ -1,8 +1,10 @@
 .container {
   max-width: 100%;
   margin: 0 auto;
+  padding-top: 2%;
   padding-right: 20%;
   padding-left: 20%;
+  text-align: center;
 }
 
 .quote-text {
@@ -10,4 +12,49 @@
   font-weight: 600;
   margin-bottom: 2rem;
   text-align: center;
+}
+.quatrain-container {
+  width: 100%;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
+}
+
+.quatrain {
+  //width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.quatrain-header {
+  //margin-top: 3rem;
+  padding: 0.5rem 0;
+  text-align: center;
+  border-color: transparent;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1029ba;
+  //border-top: solid 1px #e67e1e;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.quatrain-text {
+  padding: 0rem 1rem;
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: #1029ba;
+}
+
+.change-verse {
+  font-size: 0.7rem;
+  padding-bottom: 0.6rem;
+  font-weight: 400;
+  color: #1029ba;
 }
