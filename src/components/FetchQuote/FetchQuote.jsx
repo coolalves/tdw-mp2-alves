@@ -74,7 +74,7 @@ const FetchQuote = () => {
         >
           generate
         </button>
-        {gotQuote ? <ActionButtons props={quatrain} /> : null}
+        {gotQuote ? <ActionButtons quatrain={quatrain} title={title} /> : null}
       </div>
       <div className={"container"}>
         <span>

@@ -4,15 +4,20 @@ import "../../styles/App.scss";
 import { TwitterShareButton, TwitterIcon } from "react-share";
 
 const ActionButtons = (props) => {
-  let data = props;
+  const title = props.title;
+  const quatrain = props.quatrain;
   const [pickedQuote, setPickedQuote] = useState("");
+  const [pickedTitle, setPickedTitle] = useState("");
 
   const handleButtonClick = () => {
-    setPickedQuote(data);
+    setPickedQuote(quatrain);
+    setPickedTitle(title);
   };
 
+  console.log(title, quatrain);
+
   useEffect(() => {
-    console.log(pickedQuote.props);
+    console.log(pickedQuote);
   }, [pickedQuote]);
 
   return (
@@ -20,7 +25,7 @@ const ActionButtons = (props) => {
       <div className={"buttons"}>
         <button onClick={handleButtonClick} className={"custom-button"}>
           {" "}
-          submit
+          pick quatrain
         </button>
       </div>
       <div className={"buttons"}>
@@ -29,10 +34,10 @@ const ActionButtons = (props) => {
             buttonHashtag: undefined,
             screenName: undefined,
             size: "large",
-            text: data,
+            text: quatrain,
             via: "MCTW-TDW-MP2",
           }}
-          url={data.props + " -idiot verse "}
+          url={quatrain + " -idiot verse "}
         >
           <TwitterIcon
             size={30}
