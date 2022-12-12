@@ -38,6 +38,21 @@ const FetchQuote = () => {
     console.log(newArr);
   };
 
+  const body = quatrain.map((e, key) => {
+    return (
+      <div className={"verse-container"}>
+        <p className={"quatrain-text"}> {quatrain[key]} </p>
+        <button
+          style={{ display: showChangeVerse ? "block" : "none" }}
+          className={"custom-button-small"}
+          onClick={() => changeVerse(key)}
+        >
+          replace verse
+        </button>
+      </div>
+    );
+  });
+
   return (
     <>
       <div className={"container"}>
@@ -49,43 +64,7 @@ const FetchQuote = () => {
               onChange={(e) => setTitle(e.target.value)}
               className={"quatrain-header"}
             />
-            <div>
-              <p className={"quatrain-text"}> {quatrain[0]} </p>
-              <button
-                style={{ display: showChangeVerse ? "block" : "none" }}
-                className={"custom-button"}
-                onClick={() => changeVerse(0)}
-              >
-                change quote
-              </button>
-
-              <p className={"quatrain-text"}> {quatrain[1]} </p>
-              <button
-                style={{ display: showChangeVerse ? "block" : "none" }}
-                className={"custom-button"}
-                onClick={() => changeVerse(1)}
-              >
-                change quote
-              </button>
-
-              <p className={"quatrain-text"}> {quatrain[2]} </p>
-              <button
-                style={{ display: showChangeVerse ? "block" : "none" }}
-                className={"custom-button"}
-                onClick={() => changeVerse(2)}
-              >
-                change quote
-              </button>
-
-              <p className={"quatrain-text"}> {quatrain[3]} </p>
-              <button
-                style={{ display: showChangeVerse ? "block" : "none" }}
-                className={"custom-button"}
-                onClick={() => changeVerse(3)}
-              >
-                change quote
-              </button>
-            </div>
+            {body}
           </div>
         </div>
         <button
@@ -93,7 +72,7 @@ const FetchQuote = () => {
           onClick={handleClick}
           className={"custom-button"}
         >
-          get a quatrain
+          generate
         </button>
         {gotQuote ? <ActionButtons props={quatrain} /> : null}
       </div>

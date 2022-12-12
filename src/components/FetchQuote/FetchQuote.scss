@@ -58,3 +58,12 @@ button:focus {
   font-weight: 400;
   color: #1029ba;
 }
+
+.verse-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0.4rem;
+}

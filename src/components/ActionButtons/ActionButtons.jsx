@@ -20,7 +20,7 @@ const ActionButtons = (props) => {
       <div className={"buttons"}>
         <button onClick={handleButtonClick} className={"custom-button"}>
           {" "}
-          pick quatrain
+          submit
         </button>
       </div>
       <div className={"buttons"}>
