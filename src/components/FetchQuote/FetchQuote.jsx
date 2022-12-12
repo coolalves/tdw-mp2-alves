@@ -14,8 +14,6 @@ const FetchQuote = () => {
   const [title, setTitle] = useState("name your quatrain here");
   const [showChangeVerse, setShowChangeVerse] = useState(false);
 
-  useEffect(() => {}, [quatrain]);
-
   const handleClick = async () => {
     // create a quatrain array
     let quatrain = [];

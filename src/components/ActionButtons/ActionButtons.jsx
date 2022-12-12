@@ -1,56 +1,42 @@
 import React, { useState, useEffect } from "react";
 import "./ActionButtons.scss";
 import "../../styles/App.scss";
-import { TwitterShareButton, TwitterIcon } from "react-share";
+import { useNavigate } from "react-router-dom";
 
 const ActionButtons = (props) => {
-  const title = props.title;
-  const quatrain = props.quatrain;
+  const Navigate = useNavigate();
+  //const title = props.title;
+  //const quatrain = props.quatrain;
   const [pickedQuote, setPickedQuote] = useState("");
   const [pickedTitle, setPickedTitle] = useState("");
 
   const handleButtonClick = () => {
-    setPickedQuote(quatrain);
-    setPickedTitle(title);
+    const data = [pickedTitle, pickedQuote];
+    //console.log(data);
+    Navigate("/submit", {
+      replace: true,
+      state: { title: data[0], quatrain: data[1] },
+    });
   };
 
-  console.log(title, quatrain);
+  //console.log(title, quatrain);
 
   useEffect(() => {
-    console.log(pickedQuote);
-  }, [pickedQuote]);
+    setPickedTitle(props.title);
+  }, [props.title]);
+
+  useEffect(() => {
+    setPickedQuote(props.quatrain);
+  }, [props.quatrain]);
 
   return (
     <>
       <div className={"buttons"}>
         <button onClick={handleButtonClick} className={"custom-button"}>
-          {" "}
-          pick quatrain
+          submit
         </button>
       </div>
-      <div className={"buttons"}>
-        <TwitterShareButton
-          options={{
-            buttonHashtag: undefined,
-            screenName: undefined,
-            size: "large",
-            text: quatrain,
-            via: "MCTW-TDW-MP2",
-          }}
-          url={quatrain + " -idiot verse "}
-        >
-          <TwitterIcon
-            size={30}
-            round={true}
-            bgStyle={{
-              stroke: "#e5e5e5",
-              strokeWidth: 2,
-              fill: "none",
-              hover: { fill: "#e5e5e5" },
-            }}
-          />
-        </TwitterShareButton>
-      </div>
+      <div className={"buttons"}></div>
     </>
   );
 };

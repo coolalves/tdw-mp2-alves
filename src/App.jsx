@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Register from "./components/Auth/Register";
 import Login from "./components/Auth/Login";
 import Main from "./pages/Main";
+import Submit from "./pages/Submit";
 import { AuthProvider } from "../src/components/Auth/AuthContext";
 import { auth } from "../src/firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -21,6 +22,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route exact path="/" element={<Main />} />
+        <Route exact path="/submit" element={<Submit />} />
         <Route
           path="/register"
           element={
