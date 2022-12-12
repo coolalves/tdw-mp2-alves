@@ -40,7 +40,7 @@ const FetchQuote = () => {
 
   const body = quatrain.map((e, key) => {
     return (
-      <div className={"verse-container"}>
+      <div className={"verse-container"} key={key}>
         <p className={"quatrain-text"}> {quatrain[key]} </p>
         <button
           style={{ display: showChangeVerse ? "block" : "none" }}
