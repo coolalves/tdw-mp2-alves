@@ -15,21 +15,26 @@ const FetchQuote = () => {
   const [title, setTitle] = useState("name your quatrain here");
   const [showChangeVerse, setShowChangeVerse] = useState(false);
 
+  useEffect(() => {}, [quatrain]);
+
   const handleClick = async () => {
+    // create a quatrain array
+    let quatrain = [];
     for (let i = 0; i < 4; i++) {
-      const response = await axios.get("https://api.quotable.io/random");
-      arrData.push(response.data.content);
+      const response = await axios.get("https://api.kanye.rest/");
+      quatrain.push(response.data.quote);
     }
-    setQuatrain(arrData);
+    // update the quatrain state with the quatrain array
+    setQuatrain(quatrain);
     setGotQuote(true);
     setQuoteButton(false);
     setShowChangeVerse(true);
   };
 
   const changeVerse = async (i) => {
-    const response = await axios.get("https://api.quotable.io/random");
-    let newArr = quatrain;
-    newArr[i] = response.data.content;
+    const response = await axios.get("https://api.kanye.rest/");
+    let newArr = [...quatrain];
+    newArr[i] = response.data.quote;
     setQuatrain(newArr);
     console.log(newArr);
   };
