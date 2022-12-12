@@ -10,7 +10,6 @@ import "../Auth/Auth.scss";
 const FetchQuote = () => {
   const [quoteButton, setQuoteButton] = useState(true);
   const [quatrain, setQuatrain] = useState([]);
-  const arrData = [];
   const [gotQuote, setGotQuote] = useState(false);
   const [title, setTitle] = useState("name your quatrain here");
   const [showChangeVerse, setShowChangeVerse] = useState(false);
