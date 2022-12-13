@@ -5,6 +5,7 @@ import Register from "./components/Auth/Register";
 import Login from "./components/Auth/Login";
 import Main from "./pages/Main";
 import Submit from "./pages/Submit";
+import Feed from "./pages/Feed";
 import { AuthProvider } from "../src/components/Auth/AuthContext";
 import { auth } from "../src/firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -23,6 +24,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Main />} />
         <Route exact path="/submit" element={<Submit />} />
+        <Route exact path="/feed" element={<Feed />} />
         <Route
           path="/register"
           element={

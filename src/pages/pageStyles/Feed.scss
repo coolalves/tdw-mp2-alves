@@ -1,0 +1,46 @@
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: 2%;
+    padding-right: 20%;
+    padding-left: 20%;
+    text-align: center;
+}
+
+.quatrain-container {
+    width: 100%;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
+}
+
+.quatrain {
+    //width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.verse-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0.4rem;
+}
+
+.quatrain-header-huge {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1029ba;
+    letter-spacing: -2px;
+}
+
+.quatrain-text {
+    padding: 0rem 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #1029ba;
+}

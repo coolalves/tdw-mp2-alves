@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import "./FetchQuote.scss";
 import "../../styles/App.scss";
 import ActionButtons from "../ActionButtons/ActionButtons";
@@ -11,7 +10,7 @@ const FetchQuote = () => {
   const [quoteButton, setQuoteButton] = useState(true);
   const [quatrain, setQuatrain] = useState([]);
   const [gotQuote, setGotQuote] = useState(false);
-  const [title, setTitle] = useState("name your quatrain here");
+  const [title, setTitle] = useState("name your quatrain");
   const [showChangeVerse, setShowChangeVerse] = useState(false);
 
   const handleClick = async () => {
