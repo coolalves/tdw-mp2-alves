@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "../components/Auth/Auth.scss";
 import { WhatsappShareButton, WhatsappIcon } from "react-share";
+import { handleUpload } from "../firebase/firebase.js";
 
 const Submit = () => {
   const location = useLocation();
@@ -29,6 +30,12 @@ const Submit = () => {
               {mappedQuatrain}
             </div>
           </div>
+          <button
+            onClick={() => handleUpload(quatrain, title)}
+            className={"custom-button"}
+          >
+            submit
+          </button>
         </div>
 
         <WhatsappShareButton
