@@ -17,7 +17,6 @@ const Submit = () => {
   const quatrain = location.state.quatrain;
   const author = location.state.author;
 
-
   const dispatch = useDispatch();
 
 
@@ -39,15 +38,18 @@ const Submit = () => {
             <div className={"verse-container"}>
               <h1 className={"quatrain-header-huge"}>{title}</h1>
               {mappedQuatrain}
+              <p>{author}</p>
             </div>
           </div>
+        </div>
+        <div>
           <button
             onClick={() => {
               handleUpload(quatrain, title, author);
               dispatch(resetQuatrain());
               navigate("/feed");
             }}
-            className={"custom-button"}
+            className={"other-button"}
           >
             submit
           </button>
@@ -55,7 +57,7 @@ const Submit = () => {
             onClick={() => {
               navigate("/");
             }}
-            className={"custom-button"}
+            className={"other-button"}
           >
             return
           </button>
