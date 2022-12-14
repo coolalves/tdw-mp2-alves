@@ -41,7 +41,7 @@ const FetchQuote = () => {
     let newArr = [...quatrain];
     newArr[i] = response.data.quote;
     setQuatrain(newArr);
-    console.log(newArr);
+    //console.log(newArr);
   };
 
   const body = quatrain.map((e, key) => {
