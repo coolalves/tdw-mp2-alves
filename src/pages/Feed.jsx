@@ -17,13 +17,13 @@ const Feed = () => {
     useEffect(() => {
         getDocs(colRef)
             .then((snapshot) => {
-                // Create an array of quatrain objects from the snapshot
+                // cria um array de quatrain objects desde o snapshot
                 const quatrainsArray = snapshot.docs.map((doc) => ({
                     ...doc.data(),
                     id: doc.id,
                 }));
 
-                // Update the quatrains state with the array of quatrains
+                // atualiza o estado das quatrains com o array de quatrains
                 setQuatrains(quatrainsArray);
             })
             .catch((err) => {
@@ -32,19 +32,18 @@ const Feed = () => {
     }, []);
 
 
-    const feedContent = quatrains.map((e) => {
-        const date = e.timestamp.toDate().toDateString()
-        //console.log(date)
+    const feedContent = quatrains.map((quatrain) => {
+        const date = quatrain.timestamp.toDate().toLocaleString();
         return (
-            <div key={e.id} className={"container"}>
+            <div key={quatrain.id} className={"container"}>
                 <div className={"quatrain-container"}>
                     <div className={"quatrain"}>
                         <div className={"verse-container"}>
-                            <h1 className={"quatrain-header-huge"}>{e.title}</h1>
-                            {e.quatrain.map((verse, index) => {
+                            <h1 className={"quatrain-header-huge"}>{quatrain.title}</h1>
+                            {quatrain.quatrain.map((verse, index) => {
                                 return <p className={"quatrain-text"} key={index}>{verse}</p>
                             })}
-                            <p>{e.author}</p>
+                            <p>{quatrain.author}</p>
                             <p>{date}</p>
                         </div>
                     </div>
