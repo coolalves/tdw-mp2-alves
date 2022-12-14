@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header/Header";
-//import { Link } from "react-router-dom";
-//import { useLocation } from "react-router-dom";
 import "./pageStyles/Feed.scss";
-//import { WhatsappShareButton, WhatsappIcon } from "react-share";
-//import { handleUpload } from "../firebase/firebase.js";
 import { colRef } from "../firebase/firebase.js";
 import { getDocs } from "firebase/firestore";
 
 
 
 const Feed = () => {
-    //const data = [];
     const [quatrains, setQuatrains] = useState([]);
 
     useEffect(() => {

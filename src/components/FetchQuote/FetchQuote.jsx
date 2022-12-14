@@ -4,7 +4,6 @@ import "../../styles/App.scss";
 import ActionButtons from "../ActionButtons/ActionButtons";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../Auth/Auth.scss";
 
 const FetchQuote = () => {
   const [quoteButton, setQuoteButton] = useState(true);
@@ -80,13 +79,6 @@ const FetchQuote = () => {
         </button>
 
         {gotQuote ? <ActionButtons quatrain={quatrain} title={title} author={author} /> : null}
-      </div>
-      <div className={"container"}>
-        <span>
-          <Link className={"login-signup-label"} to="/register">
-            authenticate
-          </Link>
-        </span>
       </div>
     </>
   );

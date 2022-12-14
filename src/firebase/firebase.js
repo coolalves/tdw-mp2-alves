@@ -1,9 +1,8 @@
-//import React from "react";
-//import axios from "axios";
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 import "firebase/firestore";
-import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+
+
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -15,42 +14,13 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 export const db = getFirestore(app);
 export const colRef = collection(db, "quatrains");
 export const quatrains = [];
 
 
-/*
-export const getFeed = () => {
-    getDocs(colRef)
-        .then((snapshot) => {
-            snapshot.docs.forEach((doc) => {
-                quatrains.push({...doc.data(), id: doc.id });
-            });
-            //console.log(quatrains);
-        })
-        .catch((err) => {
-            console.log(err.message);
-        });
-}
-
-getDocs(colRef)
-    .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-            quatrains.push({...doc.data(), id: doc.id });
-        });
-        //console.log(quatrains);
-    })
-    .catch((err) => {
-        console.log(err.message);
-    });
-
-//console.log(quatrains);
-*/
-
-
 export const handleUpload = async(quatrain, title, author) => {
+
     const docRef = await addDoc(collection(db, "quatrains"), {
         quatrain: quatrain,
         title: title,
@@ -59,5 +29,3 @@ export const handleUpload = async(quatrain, title, author) => {
     });
     console.log("Document written with ID: ", docRef.id);
 };
-
-export { auth };

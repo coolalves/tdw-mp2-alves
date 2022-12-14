@@ -1,16 +1,14 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React from "react";
 import "../components/FetchQuote/FetchQuote.scss";
 import "../styles/App.scss";
 import Header from "../components/Header/Header";
-import axios from "axios";
-import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import "../components/Auth/Auth.scss";
 import { WhatsappShareButton, WhatsappIcon } from "react-share";
 import { handleUpload } from "../firebase/firebase.js";
+import { useNavigate } from "react-router-dom";
 
 const Submit = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const title = location.state.title;
   const quatrain = location.state.quatrain;
@@ -32,7 +30,7 @@ const Submit = () => {
             </div>
           </div>
           <button
-            onClick={() => handleUpload(quatrain, title, author)}
+            onClick={() => {handleUpload(quatrain, title, author); navigate("/feed");}}
             className={"custom-button"}
           >
             submit
