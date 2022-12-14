@@ -3,7 +3,7 @@ import Header from "../components/Header/Header";
 import "./pageStyles/Feed.scss";
 import { colRef } from "../firebase/firebase.js";
 import { getDocs } from "firebase/firestore";
-
+import Nav from ".././components/Nav/Nav";
 
 
 const Feed = () => {
@@ -50,7 +50,9 @@ const Feed = () => {
     return (
         <>
             <Header />
+            <Nav linkA={"about"} linkB={""} />
             {feedContent}
+
         </>
     );
 };

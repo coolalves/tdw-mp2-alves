@@ -81,13 +81,16 @@ const FetchQuote = () => {
             {body}
           </div>
         </div>
-        <button
-          style={{ display: !submit ? "block" : "none" }}
-          onClick={handleClick}
-          className={"custom-button"}
-        >
-          generate
-        </button>
+        <div className={"button-container"}>
+          <button
+            style={{ display: !submit ? "block" : "none" }}
+            onClick={handleClick}
+            className={"custom-button"}
+          >
+            generate
+          </button>
+        </div>
+
 
         {submit ? <ActionButtons quatrain={quatrain} title={title} author={author} /> : null}
       </div>

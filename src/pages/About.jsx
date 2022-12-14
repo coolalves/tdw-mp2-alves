@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header/Header";
 import "./pageStyles/Feed.scss";
+import Nav from ".././components/Nav/Nav";
 
 
 
@@ -8,6 +9,7 @@ const About = () => {
     return (
         <>
             <Header />
+            <Nav linkA={"feed"} linkB={""} />
             <div className={"container"}>
                 <div className={"quatrain-container"}>
                     <div className={"quatrain"}>
