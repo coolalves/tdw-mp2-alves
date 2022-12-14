@@ -1,32 +1,30 @@
-/*import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    author: "anonymous",
+    title: "",
     quatrain: [],
-    title: " ",
-    timestamp: new Date()
+    author: "",
 };
 
 
 export const quatrainSlice = createSlice({
     name: "quatrain",
-    initialState: {
-        quatrain: 0
-    },
+    initialState,
     reducers: {
-        increment: (state) => {
-            state.count += 1;
+        saveQuatrain: (state, action) => {
+            state.title = action.payload.title;
+            state.quatrain = action.payload.quatrain;
+            state.author = action.payload.author;
         },
-        decrement: (state) => {
-            state.count -= 1;
-        },
-        incrementByAmount: (state, action) => {
-            state.count += action.payload;
+        resetQuatrain: (state) => {
+            state.title = "";
+            state.quatrain = [];
+            state.author = "";
         }
     }
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = quatrainSlice.actions;
+export const { saveQuatrain, resetQuatrain } = quatrainSlice.actions;
 
-export default quatrainSlice.reducer;*/
+export default quatrainSlice.reducer;

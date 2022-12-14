@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../components/FetchQuote/FetchQuote.scss";
 import "../styles/App.scss";
 import Header from "../components/Header/Header";
@@ -6,6 +6,9 @@ import { useLocation } from "react-router-dom";
 import { WhatsappShareButton, WhatsappIcon } from "react-share";
 import { handleUpload } from "../firebase/firebase.js";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { resetQuatrain, saveQuatrain } from "../redux/quatrain";
+
 
 const Submit = () => {
   const navigate = useNavigate();
@@ -13,6 +16,15 @@ const Submit = () => {
   const title = location.state.title;
   const quatrain = location.state.quatrain;
   const author = location.state.author;
+
+
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    dispatch(saveQuatrain({ title, quatrain, author }))
+  }, []);
+
 
   const mappedQuatrain = quatrain.map((e, key) => {
     return <p className={"quatrain-text"}> {quatrain[key]} </p>;
@@ -30,10 +42,22 @@ const Submit = () => {
             </div>
           </div>
           <button
-            onClick={() => {handleUpload(quatrain, title, author); navigate("/feed");}}
+            onClick={() => {
+              handleUpload(quatrain, title, author);
+              dispatch(resetQuatrain());
+              navigate("/feed");
+            }}
             className={"custom-button"}
           >
             submit
+          </button>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+            className={"custom-button"}
+          >
+            return
           </button>
         </div>
 

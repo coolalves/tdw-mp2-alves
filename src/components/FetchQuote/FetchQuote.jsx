@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./FetchQuote.scss";
 import "../../styles/App.scss";
 import ActionButtons from "../ActionButtons/ActionButtons";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const FetchQuote = () => {
   const [quoteButton, setQuoteButton] = useState(true);
   const [quatrain, setQuatrain] = useState([]);
   const [gotQuote, setGotQuote] = useState(false);
-  const [title, setTitle] = useState("name your quatrain");
-  const [author, setAuthor] = useState("your name");
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
   const [showChangeVerse, setShowChangeVerse] = useState(false);
+
+  const reduxState = useSelector(state => state.quatrain);
+
+  useEffect(() => {
+    if (reduxState != null) {
+      setTitle(reduxState.title);
+      setAuthor(reduxState.author);
+      setQuatrain(reduxState.quatrain);
+      if (reduxState.quatrain.length > 0) {
+        setShowChangeVerse(true);
+        setQuoteButton(false);
+        setGotQuote(true);
+      }
+    }
+  }, []);
 
   const handleClick = async () => {
     // create a quatrain array
@@ -58,12 +74,14 @@ const FetchQuote = () => {
             <input
               type="text"
               value={title}
+              placeholder="name your quatrain"
               onChange={(e) => setTitle(e.target.value)}
               className={"quatrain-header"}
             />
             <input
               type="text"
               value={author}
+              placeholder="author name"
               onChange={(e) => setAuthor(e.target.value)}
               className={"quatrain-header"}
             />
