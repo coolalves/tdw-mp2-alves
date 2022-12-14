@@ -9,13 +9,14 @@ const ActionButtons = (props) => {
   //const quatrain = props.quatrain;
   const [pickedQuote, setPickedQuote] = useState("");
   const [pickedTitle, setPickedTitle] = useState("");
+  const [authorName, setAuthorName] = useState("");
 
   const handleButtonClick = () => {
-    const data = [pickedTitle, pickedQuote];
+    const data = [pickedTitle, pickedQuote, authorName];
     //console.log(data);
     Navigate("/submit", {
       replace: true,
-      state: { title: data[0], quatrain: data[1] },
+      state: { title: data[0], quatrain: data[1], author: data[2] },
     });
   };
 
@@ -23,11 +24,10 @@ const ActionButtons = (props) => {
 
   useEffect(() => {
     setPickedTitle(props.title);
-  }, [props.title]);
-
-  useEffect(() => {
     setPickedQuote(props.quatrain);
-  }, [props.quatrain]);
+    setAuthorName(props.author);
+  }, [props.title, props.quatrain, props.author]);
+
 
   return (
     <>

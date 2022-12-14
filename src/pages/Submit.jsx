@@ -14,6 +14,7 @@ const Submit = () => {
   const location = useLocation();
   const title = location.state.title;
   const quatrain = location.state.quatrain;
+  const author = location.state.author;
 
   const mappedQuatrain = quatrain.map((e, key) => {
     return <p className={"quatrain-text"}> {quatrain[key]} </p>;
@@ -31,7 +32,7 @@ const Submit = () => {
             </div>
           </div>
           <button
-            onClick={() => handleUpload(quatrain, title)}
+            onClick={() => handleUpload(quatrain, title, author)}
             className={"custom-button"}
           >
             submit

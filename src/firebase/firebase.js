@@ -20,6 +20,8 @@ export const db = getFirestore(app);
 export const colRef = collection(db, "quatrains");
 export const quatrains = [];
 
+
+/*
 export const getFeed = () => {
     getDocs(colRef)
         .then((snapshot) => {
@@ -45,13 +47,15 @@ getDocs(colRef)
     });
 
 //console.log(quatrains);
+*/
 
-export const handleUpload = async(quatrain, title) => {
+
+export const handleUpload = async(quatrain, title, author) => {
     const docRef = await addDoc(collection(db, "quatrains"), {
         quatrain: quatrain,
         title: title,
         timestamp: new Date(),
-        author: "anonymous",
+        author: author
     });
     console.log("Document written with ID: ", docRef.id);
 };

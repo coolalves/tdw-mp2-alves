@@ -11,6 +11,7 @@ const FetchQuote = () => {
   const [quatrain, setQuatrain] = useState([]);
   const [gotQuote, setGotQuote] = useState(false);
   const [title, setTitle] = useState("name your quatrain");
+  const [author, setAuthor] = useState("your name");
   const [showChangeVerse, setShowChangeVerse] = useState(false);
 
   const handleClick = async () => {
@@ -61,6 +62,12 @@ const FetchQuote = () => {
               onChange={(e) => setTitle(e.target.value)}
               className={"quatrain-header"}
             />
+            <input
+              type="text"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              className={"quatrain-header"}
+            />
             {body}
           </div>
         </div>
@@ -71,7 +78,8 @@ const FetchQuote = () => {
         >
           generate
         </button>
-        {gotQuote ? <ActionButtons quatrain={quatrain} title={title} /> : null}
+
+        {gotQuote ? <ActionButtons quatrain={quatrain} title={title} author={author} /> : null}
       </div>
       <div className={"container"}>
         <span>
