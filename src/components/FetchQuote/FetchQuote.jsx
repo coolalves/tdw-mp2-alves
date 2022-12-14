@@ -3,16 +3,13 @@ import "./FetchQuote.scss";
 import "../../styles/App.scss";
 import ActionButtons from "../ActionButtons/ActionButtons";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const FetchQuote = () => {
-  const [quoteButton, setQuoteButton] = useState(true);
   const [quatrain, setQuatrain] = useState([]);
-  const [gotQuote, setGotQuote] = useState(false);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [showChangeVerse, setShowChangeVerse] = useState(false);
+  const [submit, setSubmit] = useState(false);
 
   const reduxState = useSelector(state => state.quatrain);
 
@@ -22,9 +19,7 @@ const FetchQuote = () => {
       setAuthor(reduxState.author);
       setQuatrain(reduxState.quatrain);
       if (reduxState.quatrain.length > 0) {
-        setShowChangeVerse(true);
-        setQuoteButton(false);
-        setGotQuote(true);
+        setSubmit(true);
       }
     }
   }, []);
@@ -38,9 +33,7 @@ const FetchQuote = () => {
     }
     // update the quatrain state with the quatrain array
     setQuatrain(quatrain);
-    setGotQuote(true);
-    setQuoteButton(false);
-    setShowChangeVerse(true);
+    setSubmit(true);
   };
 
   const changeVerse = async (i) => {
@@ -56,7 +49,7 @@ const FetchQuote = () => {
       <div className={"verse-container"} key={key}>
         <p className={"quatrain-text"}> {quatrain[key]} </p>
         <button
-          style={{ display: showChangeVerse ? "block" : "none" }}
+          style={{ display: submit ? "block" : "none" }}
           className={"custom-button-small"}
           onClick={() => changeVerse(key)}
         >
@@ -89,14 +82,14 @@ const FetchQuote = () => {
           </div>
         </div>
         <button
-          style={{ display: quoteButton ? "block" : "none" }}
+          style={{ display: !submit ? "block" : "none" }}
           onClick={handleClick}
           className={"custom-button"}
         >
           generate
         </button>
 
-        {gotQuote ? <ActionButtons quatrain={quatrain} title={title} author={author} /> : null}
+        {submit ? <ActionButtons quatrain={quatrain} title={title} author={author} /> : null}
       </div>
     </>
   );
